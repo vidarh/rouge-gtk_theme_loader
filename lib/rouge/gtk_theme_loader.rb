@@ -6,7 +6,6 @@
 #
 
 require 'nokogiri'
-require_relative 
 
 module Rouge
   class GtkThemeLoader
