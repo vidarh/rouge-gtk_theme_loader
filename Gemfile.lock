@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    rouge-gtk_theme_loader (0.1.0)
+      rouge (> 4.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (13.0.6)
+    rouge (4.1.3)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  rake (~> 13.0)
+  rouge-gtk_theme_loader!
+
+BUNDLED WITH
+   2.4.19
