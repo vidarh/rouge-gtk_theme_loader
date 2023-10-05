@@ -63,7 +63,7 @@ module Rouge
       
       def self.load(theme)
         xml =  Nokogiri.XML(File.read(theme))
-        theme = Class.new(ReTheme)
+        theme = Class.new(GtkTheme)
         name = xml.xpath("/style-scheme").attr("id").value
         theme.name(name)
         
