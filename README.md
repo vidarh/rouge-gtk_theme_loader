@@ -19,10 +19,21 @@ path has changed to match XDG specs better, and to match GtkSourceView
 naming convention better). It will also check /usr/share/gtksourceview-4
 as well as gtksourceview-2.0 and gtksourceview-3.0 directories.
 
+## Obtaining styles files and examples
+
 For a source of GtkSourceView style files that have been mostly
 tested with this gem, check out:
 
 <https://github.com/trusktr/gedit-color-schemes/tree/master>
+
+Here are some examples of the themes available on the link above as used with Rouge:
+
+<div style="display: grid;">
+<img style="width: 45%;" src="https://raw.githubusercontent.com/vidarh/rouge-gtk_theme_loader/master/screenshots/1.png" />
+<img style="width: 45%;" src="https://raw.githubusercontent.com/vidarh/rouge-gtk_theme_loader/master/screenshots/2.png" />
+<img style="width: 45%;" src="https://raw.githubusercontent.com/vidarh/rouge-gtk_theme_loader/master/screenshots/3.png" />
+<img style="width: 45%;" src="https://raw.githubusercontent.com/vidarh/rouge-gtk_theme_loader/master/screenshots/4.png" />
+</div>
 
 ## Development
 
