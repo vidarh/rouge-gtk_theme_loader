@@ -10,9 +10,19 @@ Install the gem and add to the application's Gemfile by executing:
 
 ## Usage
 
-Require Rouge first. Then require 'rouge/gtk_theme_loader' and it will attempt to load any installed
-GtkSourceView themes into Rouge. If you want to install your own custom GtkSourceView
-themes, you can install them in ~/.config/rouge/themes/
+Require Rouge first. Then require 'rouge/gtk_theme_loader' and it will attempt to load
+any installed GtkSourceView themes into Rouge. If you want to install your own custom
+GtkSourceView themes, you can install them in
+`~/.local/share/gtksourceview-4/styles`, or if you want them to only
+apply to Rouge, you can drop them in `~/.local/share/rouge/styles` (NOTE: This
+path has changed to match XDG specs better, and to match GtkSourceView
+naming convention better). It will also check /usr/share/gtksourceview-4
+as well as gtksourceview-2.0 and gtksourceview-3.0 directories.
+
+For a source of GtkSourceView style files that have been mostly
+tested with this gem, check out:
+
+<https://github.com/trusktr/gedit-color-schemes/tree/master>
 
 ## Development
 

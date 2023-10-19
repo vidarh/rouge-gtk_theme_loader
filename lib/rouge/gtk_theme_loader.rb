@@ -16,10 +16,14 @@ module Rouge
       "/usr/share/gtksourceview-2.0/styles/*.xml",
       "/usr/share/gtksourceview-3.0/styles/*.xml",
       "/usr/share/gtksourceview-4/styles/*.xml",
-      "~/.config/rouge/themes/*.xml"
+      "~/.local/share/gtksourceview-2.0/styles/*.xml",
+      "~/.local/share/gtksourceview-3.0/styles/*.xml",
+      "~/.local/share/gtksourceview-4/styles/*.xml",
+      "~/.local/share/rouge/styles/*.xml"
       ]
 
-      # Mapping of GTK source view mappings.
+      # GTK source view mappings to Rouge token mappings
+      # This is incomplete.
       GTKMAPPING = {
         "def:string"       => Literal::String,
         "def:constant"     => Literal,
@@ -32,6 +36,16 @@ module Rouge
         "def:identifier"   => Name::Builtin,
         "def:emphasis"     => Generic::Emph,
         "def:preprocessor" => Name::Builtin,
+        "def:builtin"      => Name::Builtin,
+        "def:instance-variable" => Name::Variable::Instance,
+        "def:operator"     => Operator,
+        "def:boolean"      => Keyword::Pseudo,
+
+        # FIXME: Use theme specific ones as fallbacks only.
+        "ruby:global-variable" => Name::Variable::Global,
+        "ruby:instance-variable" => Name::Variable::Instance,
+        "ruby:constant" => Name::Constant,
+        "ruby:builtin"      => Name::Builtin,
       }
 
       def self.load!
@@ -76,13 +90,13 @@ module Rouge
         if @text
           
           theme.style(Text,
-          :fg => @text.attr("foreground").to_sym,
-          :bg => @text.attr("background").to_sym
+          :fg => @text&.attr("foreground")&.to_sym,
+          :bg => @text&.attr("background")&.to_sym
         )
       else
         bgp = xml.xpath("//style[@name='background-pattern']")
         if bgp
-          bg = bgp.attr("background").value
+          bg = bgp&.attr("background")&.value
         end
         bg ||= "#000000"
         if bg[0] == ?#
